@@ -8,20 +8,33 @@ $db = new TweetDb();
 
 //$db->updateTweeter(1, 'tweeter', 'http://blah.png');
 
-print "\nLatest Tweets:\n";
+//print "\nLatest Tweets:\n";
 
-$tweets = $db->fetchLatestTweets();
-while ($row = mysqli_fetch_row($tweets))
+$tweets = array();
+
+$result = $db->fetchLatestTweets();
+while ($row = mysqli_fetch_row($result))
 {
-	print base64_decode($row[0]) . "\n";
+	array_push($tweets, unserialize(base64_decode($row[0])));
+	//print json_encode(unserialize(base64_decode($row[0]))) . "\n";
 }
 
-print "\nTop Tweeters:\n";
+//print json_encode($tweets) . "\n";
 
-$tweeters = $db->fetchTopTweeters();
-while ($tweeter = mysqli_fetch_assoc($tweeters))
+//print "\nTop Tweeters:\n";
+
+$tweeters = array();
+
+$result = $db->fetchTopTweeters();
+while ($tweeter = mysqli_fetch_assoc($result))
 {
-	print $tweeter['screen_name'] . " (" . $tweeter['tweet_count'] . ")\n";
+	array_push($tweeters, $tweeter);
+	//print $tweeter['screen_name'] . " (" . $tweeter['tweet_count'] . ")\n";
 }
+
+//print json_encode($tweeters);
+
+header('Content-Type: application/json');
+print json_encode(array('tweets' => $tweets, 'tweeters' => $tweeters));
 
 ?>

@@ -1,10 +1,11 @@
 <?php
 
-require_once('lib/Phirehose.php');
-require_once('lib/OauthPhirehose.php');
+require_once('../lib/Phirehose.php');
+require_once('../lib/OauthPhirehose.php');
 
-require_once('tweetdb.php');
-require_once('config.oauth.php');
+require_once('../lib/tweetdb.php');
+
+require_once('../config.oauth.php');
 
 class Consumer extends OauthPhirehose
 {
@@ -48,7 +49,7 @@ class Consumer extends OauthPhirehose
 
       if ($this->tweetdb)
       {
-        $this->tweetdb->insertTweet($data['id'], base64_encode($status));
+        $this->tweetdb->insertTweet($data['id'], base64_encode(serialize($data)));
 
         if (isset($user['screen_name']))
         {

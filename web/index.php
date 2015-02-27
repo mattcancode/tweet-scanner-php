@@ -8,7 +8,7 @@
 
 	<title>Tweet Scanner</title>
 
-	<link rel="stylesheet" type="text/css" href="lib/vendor/bootstrap-3.3.2-dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap-3.3.2-dist/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/tweet-scanner.css" />
 </head>
 
@@ -37,7 +37,7 @@
 
 	</div>
 
-	<script src="lib/vendor/jquery-1.11.2/jquery-1.11.2.min.js"></script>
+	<script src="vendor/jquery-1.11.2/jquery-1.11.2.min.js"></script>
 	<script src="js/tweet-scanner.js"></script>
 	<!--
 	<script src="lib/vendor/bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>

@@ -15,7 +15,7 @@ class TweetDb
 
 	function __construct()
 	{
-		require_once('config.db.php');
+		require_once('../config.db.php');
 
 		$this->dbconnect = mysqli_connect($db_host, $db_user, $db_password, $db_name);
 
@@ -87,18 +87,11 @@ class TweetDb
 		$this->insert('tweeters', $values, 'tweet_count = tweet_count + ' . $count);
 
 		return;
-
-		$statement = 'INSERT INTO tweeter SET ' . $values
-					. ' ON DUPLICATE KEY UPDATE tweet_count = tweet_count + ' . $count;
-
-		//print "executing: " . $statement . "\n";
-
-		mysqli_query($this->dbconnect, $statement);
 	}
 
 	private function select($query)
 	{
-		print "executing: " . $query . "\n";
+		//print "executing: " . $query . "\n";
 
 		$result = mysqli_query($this->dbconnect, $query);
 
