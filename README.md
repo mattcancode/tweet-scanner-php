@@ -11,7 +11,7 @@ that were familiar but a bit rusty (using [MySQL][8] and configuring
 [Apache][11]), I opted to put together a version that used vanilla [PHP][1].
 
 With this simpler prototype in place, migrating it to [Symfony][2] actually
-wasn't a bit deal. Figuring out some of the poorly document setup ended up
+wasn't a big deal. Figuring out some of the poorly documented setup ended up
 being at least as time-consuming as writing the code. (Seriously?? The initial
 app.php doesn't actually run but app_dev.php does?!? Perhaps that ought to be
 at the top of the Quick Tour!)
